@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>HOMEPAGE</title>
+	<link rel="stylesheet"           href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-  9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"  integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" 		  crossorigin="anonymous">
+
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<nav class="navbar navbar-expand-lg navbar-light">
+			<div class = "container">
+				<a class="z navbar-brand home-btn" href="/"><strong>Codeforces Ladders</strong></a>
+				<ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+					<li class="nav-item active">
+						<a class="nav-link" href="/"><span class="nav-btn"><strong>Home</strong></span></a>
+					</li>
+				</ul>
+			</div>
+	</nav>
+	<div class="container h-100 search">
+			<div class="d-flex justify-content-center h-100">
+				<form action="/getHandle" method="GET" class="searchbar" autocomplete="off">
+					<input class="search_input" type="text" name="handle" placeholder="Enter codeforces handle">
+					<button type="submit" class="btn-success">Submit</button>
+				</form>
+			</div>
+		</div>
+	<div class="jumbotron jumbotron-fluid">
+			<div class="container container1">
+				<p class="lead1">Codeforces Ladders a web application developed by 
+					<br>Abhinav Pitliya for the purpose of reducing difficulty in searching problems on codeforces division wise. </p>
+				<p class="lead">This application allows user to keep track of their performance by their rating curve of contests along with their maximum and current rating . This application help a user to search problems from different divisions of contests from their difficuly type so that they can practice accordingly.   </p>
+			</div>
+		</div>
+</body>
+</html>
