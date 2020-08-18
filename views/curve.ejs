@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>User Details</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
+
+	<link rel="stylesheet"           href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-  9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+	<link rel="stylesheet" href="style2.css">
+</head>
+<body>
+	<nav class="navbar navbar-expand-lg navbar-light ">
+			<div class = "container">
+				<a class="z navbar-brand home-btn" href="/"><strong>Codeforces Ladders</strong></a>
+				<ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+					<li class="nav-item active">
+						<a class="nav-link" href="/"><span class="nav-btn"><strong>Home</strong></span></a>
+					</li>
+				</ul>
+			</div>
+	</nav>
+		<div class="dropdown jumbotron jumbotron-fluid">
+			<form action="/selectProblem" method="GET"  class="searchbar" autocomplete="off">
+				<label>
+				Select Division
+				<select name="division">
+					<option >Div</option>
+					<option >1</option>
+					<option >2</option>
+					<option >3</option>
+				</select>
+				</label>
+				<p>
+				<label class="sel">
+				Select Index or Type
+				<select name="index" >
+					<option>Index</option>
+					<option >A</option>
+					<option >B</option>
+					<option >C</option>
+					<option >D</option>
+					<option >E</option>
+					<option >F</option>
+					<option >G</option>
+					<option >H</option>
+					<option >I</option>
+					<option >J</option>
+					<option >K</option>
+					<option >L</option>
+					<option >M</option>
+					<option >N</option>
+					<option >O</option>
+					<option >P</option>
+					<option >Q</option>
+					<option >R</option>
+					<option >S</option>
+					<option >T</option>
+					<option >U</option>
+					<option >V</option>
+					<option >W</option>
+					<option >X</option>
+					<option >Y</option>
+					<option >Z</option>
+					</select>
+			</label>
+			</p>
+				<button type="submit" class="search_icon btn-success">Submit</button>
+			</form>
+		</div>
+			<div class="divi jumbotron jumbotron-fluid">
+				<h2 id="details">Details of <%- JSON.stringify(handle)%></h2>
+				<p><strong>Current Rating :</strong> <%= currRating %></p>
+				<p><strong>Maximum Rating :</strong><%= maxRating %></p>
+				<p><strong>Number of Contests:</strong> <%= contest %></p>
+					
+			</div>
+			<div class="info-box">
+				 <div class="container" >
+					<canvas id="ratingGraph"></canvas>
+				</div>
+				<script>
+					let ratingGraph = document.getElementById('ratingGraph').getContext('2d');
+					Chart.defaults.global.defaultFontFamily = 'Sans-Serif';
+					Chart.defaults.global.defaultFontSize = 18;
+					Chart.defaults.global.defaultFontColor = '#000';
+					let ratingGraphChart = new Chart(ratingGraph, {
+						type: 'line', 
+						data: {
+							labels: <%- JSON.stringify(contestid); %>,
+							datasets: [{
+								data: <%- JSON.stringify(rating); %>,
+								backgroundColor: 'rgba(191, 64, 128,1)',
+								borderWidth: 0,
+								borderColor: '#000',
+								hoverBorderWidth: 3,
+								hoverBorderColor: '#777',
+								lineTension : 0.2,
+								pointHoverRadius: 5,
+								pointHoverBackgroundColor: 'rgba(20, 50, 150, 1)'
+							}]
+						},
+						options: {
+							title:{
+								display: true,
+								text: 'Rating Curve of ' + <%- JSON.stringify(handle); %>,
+								fontSize: 25,
+								padding: 30
+							},
+							legend:{
+								display: false
+							},
+							layout:{
+								padding: {
+									left: 20,
+									right: 10,
+									bottom: 0,
+									top: 0
+						  		}
+							},
+							tooltips:{
+								enabled: true
+							}
+					  	}
+					});
+				</script>
+
+				<div style="height: 20px"></div>
+	</div>	
+	<p></p>
+	<p></p>
+</body>
+</html>
